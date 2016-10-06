@@ -143,15 +143,28 @@
 	)
 )
 
-
-
-
-
-
 ; test 8.0
-(format t "test 8: ~d ~%" (BTREE2LIST 1))
-(format t "test 8: ~d ~%" (BTREE2LIST '(1 2)))
-(format t "test 8: ~d ~%" (BTREE2LIST '(1 (2 3))))
-(format t "test 8: ~d ~%" (BTREE2LIST '(((1 2) (3 4)) ((5 6) (7 8)))))
+; (format t "test 8: ~d ~%" (BTREE2LIST 1))
+; (format t "test 8: ~d ~%" (BTREE2LIST '(1 2)))
+; (format t "test 8: ~d ~%" (BTREE2LIST '(1 (2 3))))
+; (format t "test 8: ~d ~%" (BTREE2LIST '(((1 2) (3 4)) ((5 6) (7 8)))))
+
+
+; 9. check two LISP expressions (consists of numbers) are equal 
+(defun IS-SAME (E1 E2)
+; argument: two LISP expressions
+; return: T if E1 and E2 are identical
+	(cond 
+		((null E1) (if (null E2) t Nil))
+		((atom E1) (if (atom E2) (if (= E1 E2) t Nil) Nil))
+		((null E2) (if (null E1) t Nil))
+		((IS-SAME (first E1) (first E2)) (IS-SAME (rest E1) (rest E2)))
+		(t Nil)
+		)
+)
+; test 9.0
+(format t "test 9: ~a ~%" (IS-SAME '((1 2 3) 7 8) '((1 2 3) 7 8)))
+(format t "test 9: ~a ~%" (IS-SAME '(1 2 3 7 8) '((1 2 3) 7 8)))
+(format t "test 9: ~a ~%" (IS-SAME '(1) '(1)))
 
 
