@@ -163,8 +163,8 @@
 		)
 )
 ; test 9.0
-(format t "test 9: ~a ~%" (IS-SAME '((1 2 3) 7 8) '((1 2 3) 7 8)))
-(format t "test 9: ~a ~%" (IS-SAME '(1 2 3 7 8) '((1 2 3) 7 8)))
-(format t "test 9: ~a ~%" (IS-SAME '(1) '(1)))
+; (format t "test 9: ~a ~%" (IS-SAME '((1 2 3) 7 8) '((1 2 3) 7 8)))
+; (format t "test 9: ~a ~%" (IS-SAME '(1 2 3 7 8) '((1 2 3) 7 8)))
+; (format t "test 9: ~a ~%" (IS-SAME '(1) '(1)))
 
 
