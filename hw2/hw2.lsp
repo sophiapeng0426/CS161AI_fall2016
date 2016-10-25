@@ -185,7 +185,7 @@
 	(or (single-dfs s Nil depth) (id-dfs s (+ depth 1)))
   )
 
-(format t "test id-dfs: ~d ~%" (id-dfs '(3 3 t) 0)) 
+; (format t "test id-dfs: ~d ~%" (id-dfs '(3 3 t) 0)) 
 
 ; Function execution examples
 
