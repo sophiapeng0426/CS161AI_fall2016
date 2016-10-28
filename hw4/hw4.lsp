@@ -270,7 +270,7 @@
 
 
 ; (format t "test check-true : ~d ~%" (check-true '(3 -2 -1) '((1 -2 3) (-1) (-2 -3)))) ; Nil
-(format t "test solve-cnf: ~d ~%" (solve-cnf 'cnfs/sat/cnf_30.cnf))
+(format t "test solve-cnf: ~d ~%" (solve-cnf 'cnfs/sat/cnf_50.cnf))
 (format t "test check true: ~d ~%" (check-true (solve-cnf 'cnfs/sat/cnf_50.cnf) (second (parse-cnf 'cnfs/sat/cnf_50.cnf))))
 
 
