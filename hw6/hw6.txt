@@ -1,0 +1,76 @@
+1)
+a. theta = {x/A, y/B, z/B}
+b. cannot find unifier.
+c. theta = {x/B,y/A}
+d. theta = {y/John, x/John}
+e. cannot find unifier, since Father(y) cannot be y
+
+
+2)
+a. Translate the sentences into formulas in first-order logic.
+	1. A x Food(x) => Likes(John, x)
+	2. Food(Apples)
+	3. Food(Chicken)
+	4. A y (Ex Eats(x, y) & ~Kills(y, x)) => Food(y)
+	5. A x E y Kills(y, x) => ~Live(x)
+	6. Eats(Bill, Peanuts) & Live(Bill)
+	7. A x Eats(Bill, x) => Eats(Sue, x)
+
+b. Convert the formulas of part (a) into CNF (also called clausal form).
+	1. ~ Food(x) | Likes(John,x)
+	2. Food(Apples)
+	3. Food(Chicken)
+	4. ~Eats(F(y),y) | kills(y,F(y)) | Food(y)
+	5. ~Kills(F(x),x) | ~Live(x)
+	6. Eats(Bill, Peanuts) 
+	7. Live(Bill)
+	8. ~Eats(Bill,x) | Eats(Sue,x)
+
+c. Prove that John likes peanuts using resolution
+	9. ~Likes(John, Peanuts)
+	10. Kills(Peanuts, Bill) | Food(Peanuts) {y/Peanuts, F(y)/Bill} (4 and 6)
+	11. ~Live(Bill) | Food(Peanuts) {x/Bill, F(x)/Peanuts} (10 and 5)
+	12. Food(Peanuts) (11 and 7)
+	13. Likes(John, Peanuts) (12 and 1)
+	14. {} 9 and 13
+	Therefore, John likes peanuts.
+d. Use resolution to answer the question, “what food does Sue eat?
+	15. Eats(Sue, Peanuts) (6 and 8)
+	Therefore Sue eats peanuts.
+e. 
+	delete 6 and 7 from a,b
+	add the following to KB:
+	9. Ax ~Ey Eats(x,y) => Die(x)
+	10. Die(x) => ~Live(x)
+	11. Live(Bill)
+	
+	Convert to CNF
+	9. Eats(x, F(x)) | Die(x)
+	10. ~Die(x) | ~Live(x)
+	11. Live(Bill)
+
+	Using resolution
+	12. ~Die(Bill) {x/Bill} (10 and 11)
+	13. Eats(Bill, F(Bill)) {x/Bill, F(x)/F(Bill)} (9 and 12)
+	14. Eats(Sue, F(Bill)) {x/F(Bill)} (13 and 8)
+	15. Kills(F(Bill), Bill) | Food(F(Bill)) {F(y)/Bill, y/Bill} (13 and 4)
+	16. Food(F(Bill)) | ~Live(Bill) {x/Bill) (15 and 5)
+	17. Food(F(Bill)) (16 and 11)
+	From 17 and 2, 3, F(Bill) can be apple or chicken by subs {F(Bill)/Apple)} or 	{F(Bill)/Chicken}
+
+3) Graph1 is not satisfiable with 3 colors; Graph1 is satisfiable with 4 colors.
+
+It tells us 4 is minimum number of colors needed to satisfy the constraints.
+One solution:
+node1: 1
+node2: 2
+node3: 1
+node4: 4
+node5: 3
+node6: 2
+node7: 3
+
+The minimum number required to properly color graph2 is 8.
+
+	
+

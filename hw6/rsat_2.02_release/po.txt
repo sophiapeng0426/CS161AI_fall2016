@@ -1,0 +1,16 @@
+c This is a comment line
+c The first # on each line is the priority (the larger, the higher priority)
+c After the priority are variables 
+c Every line is terminated by 0
+c This example assumes that # of variables is >= 60.
+c
+c ** May not work as intended if the preprocessor is used **
+1 1 2 3 4 5 0
+2 6 7 8 9 10 0
+3 15 0
+10 20 21 22 23 24 25 0
+20 30 0
+21 40 0
+22 44 0
+50 60 0
+45 17 0
