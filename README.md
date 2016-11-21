@@ -1,1 +1,1 @@
-# Homework for CS 161 (fall 2016)
+# CS 161 (fall 2016)
