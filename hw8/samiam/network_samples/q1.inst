@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<instantiation date="Nov 28, 2016 3:00:20 PM">
+<inst id="DogBowelTrouble" value="Yes"/>
+<inst id="SoundSensorHealth" value="OK"/>
+<inst id="DogBarking" value="No"/>
+<inst id="DogOutside" value="Yes"/>
+<inst id="Battery" value="OK"/>
+<inst id="HearableBarking" value="No"/>
+<inst id="LightSensorHealth" value="OK"/>
+<inst id="ExpectingGuests" value="No"/>
+<inst id="FamilyHome" value="No"/>
+<inst id="OutdoorLight" value="On"/>
+</instantiation>

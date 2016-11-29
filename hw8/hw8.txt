@@ -1,0 +1,73 @@
+Problem 1:
+*** question 1 ***
+	see complete network in test.net
+
+*** question 2 ***
+	Pr(D) >= 0.008942 or
+	False Positive: Pr(T = Pos|D = No) <= 0.002219
+	Change only False Negative is insufficient to ensure that Pr(D|T) >= 0.3 
+
+Problem 2:
+	(a) Variables and values:
+		ExpectingGuests: Yes/No
+		FamilyHome: Yes/No
+		SoundSensor: On/Off
+		LightSensor: On/Off
+		HearableBarking: Yes/No
+		Battery: On/Dead
+		SoundSensorHealth: OK/Broken
+		LightSensorHealth: OK/Broken
+		DogBarking: Yes/No
+		DogOutside: Yes/No
+		OutdoorLight: On/Off
+		DogBowelTrouble: Yes/No
+	(b) The causal structure in the network are copied here:
+		FamilyHome -> OutdoorLight
+		FamilyHome -> DogOutside
+		ExpectingGuests -> OutdoorLight
+		DogBowelTrouble -> DogOutside
+		OutdoorLight -> LightSensor
+		LightSensorHealth -> LightSensor
+		Battery -> LightSensor
+		Battery -> SoundSensor
+		DogOutside -> HearableBarking
+		DogBarking -> HearableBarking
+		HearableBarking -> SoundSensor
+		SoundSensorHealth -> SoundSensor
+	(c) The learned network is in Sambot.net using uniform parameter initialization and max 5 iterations. 
+
+*** question 1 ***
+	The most likely instantiations of all variables are:
+	Battery	OK
+	DogBarking	No
+	DogBowelTrouble	Yes
+	DogOutside	Yes
+	ExpectingGuests	No
+	FamilyHome	No
+	HearableBarking	No
+	LightSensorHealth	OK
+	OutdoorLight	On
+	SoundSensorHealth	OK
+
+	The most likely instantiation of all variables are obtained by first learn the network (step b) and do MPE inference on the learned network given the envidence that LightSensor = On and SoundSensor = Off.
+
+*** question 2 ***
+	The most likely instantiations of sensors are:
+	LightSensor	Off
+	SoundSensor	Off
+
+	The result is obtained by first giving the envidence of FamilyHome = Yes and ExpectingGuests = No, and do MAP inference on the learned network obtained by EM algorithm.
+
+*** question 3 ***
+	The smallest set is of size 2:
+	SET = {Battery, X} where X in {OutdoorLight, FamilyHome, DogOutside, HearableBarking}
+
+	The first path, LightSensor-Battery-SoundSensor is divergent and blocked since Battery is in SET.
+	The second path, LightSensor-OutdoorLight-FamilyHome-DogOutside-DogBarking-SoundSensor consists of sequential, convergent, sequential, sequential and all blocked since they are in SET. Any of them in SET means the whole path is blocked.
+	Therefore, all paths from LightSensor to SoundSensor are blocked and they are d-seperated, i.e., indenpendent given SET.
+
+*** question 4 ***
+	The network constructed is multiply-connected since it has loop.
+
+
+
