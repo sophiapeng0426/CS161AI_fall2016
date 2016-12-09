@@ -1,0 +1,12 @@
+3.1 
+The accuracy of learned model on training set is 0.9171;
+and accuracy of learned model on testing set is 0.9166.
+They are different because there might be biased data. The model is trained using training set. Due to overfitting, usually training set would have a larger accuracy. Here it might be due to the biased train/test data.
+
+3.2
+Use 10 loops, we got testing accuracy of 0.7821;
+Use 10000 loops, we got testing accuracy of 0.9207.
+By increasing the number of loops, we are doing more gradient descendent to approximate to the local minimum. Therefore, the prediction accuracy will increase. In this case, 10 loops failed to converge to local minimum, resulting in a low prediction accuracy.
+
+3.3
+The test accuracy is 0.9175 if we initialize all variables with ones rather than zeros.
